@@ -1,5 +1,5 @@
 import nltk
- 
+import re 
 class Retrieve:
     def fileio(self):
         global_string = ""              
@@ -7,6 +7,8 @@ class Retrieve:
          	for line in fo:
                        global_string += line
         return global_string   
-a = Retrieve()
-print a.fileio()
 
+    
+a = Retrieve()
+file_as_string=a.fileio()
+re.split('\|||','file_as_string',maxsplit=1)
