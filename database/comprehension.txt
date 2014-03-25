@@ -1,0 +1,1 @@
+compare,contrast,demonstrate,interpret,explain,extend,illustrate,infer,outline,relate,rephrase,translate,summarize,show,classify
