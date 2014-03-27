@@ -1,7 +1,7 @@
 '''from retrieve import Retrieve_Sentence'''
 import re
 import nltk
-from nltk.tokenize import RegexpTokenizer
+
 
 class Retrieve_Sentence:
     
@@ -16,17 +16,11 @@ class Retrieve_Sentence:
 
 class Retrieve_Question(Retrieve_Sentence):
 	def question_extractor(self):
-		capword_tokenizer = RegexpTokenizer('[A-Z]\w+')		
 		b = Retrieve_Sentence()	
 		file_as_string=b.sentence_extractor()	
 		every_first=re.split('\|\|\|',file_as_string)
-		for question in every_first:
-			temp_string = question
-			question_split=re.split(' ',temp_string)			
-			'''first_word=nltk.word_tokenize(temp_string)'''
-			for cap_word in question_split:			
-				capital_word=capword_tokenizer.tokenize(cap_word)
-				print capital_word		
-			
+		for word in every_first:
+			print word
+
 a = Retrieve_Question()
 a.question_extractor()
