@@ -2,7 +2,7 @@ import nltk
 import re 
 
 
-class Retrieve:
+class Retrieve_Sentence:
     
 ''' Function that is being used to extract sentences from the database'''
 
@@ -15,7 +15,7 @@ class Retrieve:
 
     
 
-''' Function retrieveing individual questions '''
+''' Function retrieveing individual questions 
     def question_extractor(self):
 	b = Retrieve()	
 	file_as_string=b.sentence_extractor()	
@@ -25,7 +25,7 @@ class Retrieve:
 
 
 a = Retrieve()
-a.question_extractor()
+a.question_extractor()'''
 '''print file_as_string
 
 every_first=re.split('\|\|\|',file_as_string)
