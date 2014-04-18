@@ -28,6 +28,9 @@ a = Retrieve()
 a.question_extractor()'''
 '''print file_as_string
 
+''' commenting codes '''
+
+
 every_first=re.split('\|\|\|',file_as_string)
 for word in every_first:
 	print word'''
