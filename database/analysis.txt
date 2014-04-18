@@ -1,6 +1,6 @@
+classify
 analyze
 compare
-classify
 contrast
 distinguish
 infer
