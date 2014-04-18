@@ -1,8 +1,12 @@
+__author__ = 'Srivallabh'
+__guidance__ = 'Naresh E'
+
 '''from retrieve import Retrieve_Sentence'''
+
 import re
 import nltk
 from nltk.tokenize import RegexpTokenizer
-
+''' Class to retrieve questions individually '''
 class Retrieve_Sentence:
     
 	
@@ -13,7 +17,7 @@ class Retrieve_Sentence:
          	for line in fo:
                        global_string += line
         return global_string   
-
+''' class to retrieve words '''
 class Retrieve_Question(Retrieve_Sentence):
 	def question_extractor(self):
 		capword_tokenizer = RegexpTokenizer('[A-Z]\w+')		
