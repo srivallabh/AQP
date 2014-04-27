@@ -1,1 +1,1 @@
-compare,contrast,demonstrate,interpret,explain,extend,illustrate,infer,outline,relate,rephrase,translate,summarize,show,classify
+'compare':'comprehension','contrast':'comprehension','demonstrate':'comprehension','interpret':'comprehension','explain':'comprehension','extend':'comprehension','illustrate':'comprehension','infer':'comprehension','outline':'comprehension','relate':'comprehension','rephrase':'comprehension','translate':'comprehension','summarize':'comprehension','show':'comprehension','classify':'comprehension'
