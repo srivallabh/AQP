@@ -58,17 +58,28 @@ class Retrieve_Question(Retrieve_Sentence):
 					#print newest_word
 					interim_var=map_word[newest_word]
 					if(interim_var is 'evaluation'):
-						evalu.append(question)
+						#evalu.append(question)
+						
+
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question + '(Evaluation)'+ '\n') 
+
+
 					elif(interim_var is 'analysis'):
-						analys.append(question)
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question +'(Analysis)' + '\n') 
 					elif(interim_var is 'application'):
-						app.append(question)
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question + '(Application)'+ '\n') 
 					elif(interim_var is 'comprehension'):
-						compre.append(question)
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question + '(Comprehension)'+ '\n') 
 					elif(interim_var is 'knowledge'):
-						know.append(question)
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question + '(Knowledge)'+ '\n') 
 					else:
-						synt.append(question)					
+						with open("head.txt", "a") as myfile:
+				    			myfile.write(question + '(Synthesis)'+ '\n') 					
 			print "evaluation", evalu ;
 			print "analysis",analys ;
 			print "application",app ;
