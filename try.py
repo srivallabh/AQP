@@ -1,6 +1,5 @@
 import re
-import nltk
-from nltk.tokenize import RegexpTokenizer
+
 
   
 
@@ -8,7 +7,7 @@ class Retrieve_Question:
 	
 
 	def question_extractor(self):
-		capword_tokenizer = RegexpTokenizer('[A-Z]\w+')		
+				
 			
 		global_string = ""              
         	with open("se.txt",'r+') as fo:
@@ -24,7 +23,7 @@ class Retrieve_Question:
 			temp_string = question 
 			question_split=re.split(' ',temp_string)			
 			
-			
+			pattern = '[A-Z]\w+'
 			keys_in_current = []
 			evalu = []
 			analys = []
@@ -33,41 +32,45 @@ class Retrieve_Question:
 			know = []
 			synt = []
 			for cap_word in question_split:			
-                		capital_word=capword_tokenizer.tokenize(cap_word)
-				if(len(capital_word)>0):
-					keys_in_current.append(capital_word)
-			print keys_in_current	
+                		if(re.match(pattern,cap_word)):
+					capital_word = cap_word
+					if(len(capital_word)>0):
+						keys_in_current.append(capital_word)
+				else:
+					continue
+			#print keys_in_current	
 			for word_cap in keys_in_current:
-				for removing_brack in word_cap:
-					removing_brackstr = str(removing_brack)					
+				#for removing_brack in word_cap:
+					#removing_brackstr = str(removing_brack)					
 					
-					newest_word = removing_brackstr.lower()
-					
+					#newest_word = removing_brackstr.lower()
+					newest_word = word_cap.lower()
 					
 					if map_word.has_key(newest_word):
+						
 						interim_var=map_word[newest_word]
 						if(interim_var is 'evaluation'):
 							
 						
 
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question + '(Evaluation)'+'      - 10m' + '\n') 
 
 
 						elif(interim_var is 'analysis'):
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question +'(Analysis)' +'      - 10m' + '\n') 
 						elif(interim_var is 'application'):
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question + '(Application)'+ '      - 10m' + '\n') 
 						elif(interim_var is 'comprehension'):
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question + '(Comprehension)'+'      - 10m' + '\n') 
 						elif(interim_var is 'knowledge'):
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question + '(Knowledge)'+'      - 10m' + '\n') 
 						else:
-							with open("head.txt", "a") as myfile:
+							with open("head1.txt", "a") as myfile:
 					    			myfile.write(question + '(Synthesis)'+'      - 10m' + '\n')
 					else: 
 						continue 					

@@ -1,17 +1,13 @@
 import re
-import nltk
-from nltk.tokenize import RegexpTokenizer
-
-  
 
 class Retrieve_Question:
 	
 
 	def question_extractor(self):
-		capword_tokenizer = RegexpTokenizer('[A-Z]\w+')		
-			
+				
+		pattern = '[A-Z]\w+'	
 		global_string = ""              
-        	with open("se.txt",'r+') as fo:
+        	with open("st1.txt",'r+') as fo:
          		for line in fo:
                        		global_string += line
 		every_first=re.split('\|\|\|',global_string)
@@ -33,10 +29,13 @@ class Retrieve_Question:
 			know = []
 			synt = []
 			for cap_word in question_split:			
-                		capital_word=capword_tokenizer.tokenize(cap_word)
-				if(len(capital_word)>0):
-					keys_in_current.append(capital_word)
-			print keys_in_current	
+                		#scanner=re.Scanner(cap_word)
+				#capital_word=scanner.scan('[A-Z]\w+')
+				if(re.match(pattern,cap_word)):
+					capital_word = cap_word
+					if(len(capital_word)>0):
+						keys_in_current.append(capital_word)
+				
 			for word_cap in keys_in_current:
 				for removing_brack in word_cap:
 					removing_brackstr = str(removing_brack)					
@@ -46,9 +45,10 @@ class Retrieve_Question:
 					
 					if map_word.has_key(newest_word):
 						interim_var=map_word[newest_word]
+						print interim_var						
 						if(interim_var is 'evaluation'):
 							
-						
+							
 
 							with open("head.txt", "a") as myfile:
 					    			myfile.write(question + '(Evaluation)'+'      - 10m' + '\n') 
@@ -71,7 +71,7 @@ class Retrieve_Question:
 					    			myfile.write(question + '(Synthesis)'+'      - 10m' + '\n')
 					else: 
 						continue 					
-			
+		
 						
 			
 						
